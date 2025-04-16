@@ -72,8 +72,8 @@ class _AlarmState extends State<Clock> {
                 _dateString,
                 style: const TextStyle(fontSize: 24, color: Colors.white70),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 470),
+              Spacer(),
+              Container(
                 child: SizedBox(
                   height: 90,
                   width: 90,
