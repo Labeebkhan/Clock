@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'alarm.dart';
 import 'clock.dart';
+import 'Timer.dart';
 
 // exact Google-style bedtime icon
 
@@ -28,7 +29,7 @@ class _ClockHomeState extends State<ClockHome> {
   final List<Widget> _pages = [
     Alarm(),
     Clock(),
-    Center(child: Text('Timer', style: TextStyle(fontSize: 24))),
+    Timer(),
     Center(child: Text('Stopwatch', style: TextStyle(fontSize: 24))),
     Center(child: Text('BedTime', style: TextStyle(fontSize: 24))),
   ];
@@ -46,7 +47,7 @@ class _ClockHomeState extends State<ClockHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 20, 20, 20),
+      backgroundColor: Color.fromARGB(255, 55, 55, 55),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -54,7 +55,7 @@ class _ClockHomeState extends State<ClockHome> {
         onTap: (index) {
           setState(() => _currentIndex = index);
         },
-        backgroundColor: const Color.fromARGB(255, 47, 47, 47),
+        backgroundColor: const Color.fromARGB(255, 55, 55, 55),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         items: List.generate(_icons.length, (index) {

@@ -53,7 +53,7 @@ class _AlarmState extends State<Clock> {
           'Clock',
           style: TextStyle(color: Colors.white, fontSize: 26),
         ),
-        backgroundColor: const Color.fromARGB(255, 20, 20, 20),
+        backgroundColor: const Color.fromARGB(255, 34, 34, 34),
         actions: [
           // 3-dot popup menu button
           PopupMenuButton<String>(
@@ -108,7 +108,7 @@ class _AlarmState extends State<Clock> {
         ],
       ),
 
-      backgroundColor: const Color.fromARGB(255, 20, 20, 20), // Dark page bg
+      backgroundColor: const Color.fromARGB(255, 34, 34, 34), // Dark page bg
       // Clock UI
       body: Center(
         child: Padding(
@@ -152,7 +152,7 @@ class _AlarmState extends State<Clock> {
                     child: const Icon(
                       Icons.add,
                       size: 28,
-                      color: Color.fromARGB(255, 41, 40, 40),
+                      color: Color.fromARGB(255, 34, 34, 34),
                     ),
                   ),
                 ),

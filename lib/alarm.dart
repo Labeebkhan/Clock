@@ -18,7 +18,7 @@ class _AlarmState extends State<Alarm> {
           'Alarms',
           style: TextStyle(color: Colors.white, fontSize: 24),
         ),
-        backgroundColor: const Color.fromARGB(255, 20, 20, 20),
+        backgroundColor: Color.fromARGB(255, 34, 34, 34),
         actions: [
           PopupMenuButton<String>(
             icon: Icon(Icons.more_vert, color: Colors.white),
@@ -29,7 +29,7 @@ class _AlarmState extends State<Alarm> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
-            color: Color(0xFF2A2A2A), // Match that dark gray tone
+            color: Color.fromARGB(255, 34, 34, 34), // Match that dark gray tone
             itemBuilder:
                 (BuildContext context) => [
                   PopupMenuItem<String>(
@@ -73,7 +73,7 @@ class _AlarmState extends State<Alarm> {
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 20, 20, 20),
+      backgroundColor: const Color.fromARGB(255, 34, 34, 34),
       body: Column(
         children: [
           Padding(
@@ -81,7 +81,7 @@ class _AlarmState extends State<Alarm> {
             child: Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E1E1E),
+                color: const Color.fromARGB(255, 55, 55, 55),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -138,7 +138,7 @@ class _AlarmState extends State<Alarm> {
             child: Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E1E1E),
+                color: const Color.fromARGB(255, 55, 55, 55),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
