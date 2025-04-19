@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'alarm.dart';
 import 'clock.dart';
 import 'Timer.dart';
+import 'stopwatch.dart';
 
 // exact Google-style bedtime icon
 
@@ -30,7 +31,7 @@ class _ClockHomeState extends State<ClockHome> {
     Alarm(),
     Clock(),
     Timer(),
-    Center(child: Text('Stopwatch', style: TextStyle(fontSize: 24))),
+    Stopwatch(),
     Center(child: Text('BedTime', style: TextStyle(fontSize: 24))),
   ];
 
