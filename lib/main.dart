@@ -3,6 +3,7 @@ import 'alarm.dart';
 import 'clock.dart';
 import 'Timer.dart';
 import 'stopwatch.dart';
+import 'bedtime.dart';
 
 // exact Google-style bedtime icon
 
@@ -32,7 +33,7 @@ class _ClockHomeState extends State<ClockHome> {
     Clock(),
     Timer(),
     Stopwatch(),
-    Center(child: Text('BedTime', style: TextStyle(fontSize: 24))),
+    Bedtime(),
   ];
 
   final List<IconData> _icons = [
