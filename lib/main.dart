@@ -4,7 +4,6 @@ import 'clock.dart';
 import 'Timer.dart';
 import 'stopwatch.dart';
 import 'bedtime.dart';
-
 // exact Google-style bedtime icon
 
 void main() {

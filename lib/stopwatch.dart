@@ -77,7 +77,7 @@ class _StopwatchState extends State<Stopwatch> {
               ),
             ),
           ),
-          Padding(padding: const EdgeInsets.only(bottom: 40)),
+          Padding(padding: const EdgeInsets.only(bottom: 80)),
         ],
       ),
     );

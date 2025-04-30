@@ -105,87 +105,89 @@ class _TimerState extends State<Timer> {
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(height: 40),
-          Text(
-            displayTime,
-            style: const TextStyle(fontSize: 40, color: Colors.white70),
-          ),
-          GridView.builder(
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(60),
-            itemCount: keys.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 10,
-            ),
-            itemBuilder: (context, index) {
-              final key = keys[index];
-              return ElevatedButton(
-                onPressed: () {
-                  if (key == '⌫') {
-                    deleteDigit();
-                  } else {
-                    addDigit(key);
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(6), // 👈 Reduce padding
-                  backgroundColor:
-                      key == '⌫'
-                          ? Colors.blue
-                          : const Color.fromARGB(255, 50, 50, 50),
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(10, 10), // 👈 Set smaller button size
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 30),
+              Text(
+                displayTime,
+                style: const TextStyle(fontSize: 40, color: Colors.white70),
+              ),
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(60),
+                itemCount: keys.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 10,
                 ),
-
+                itemBuilder: (context, index) {
+                  final key = keys[index];
+                  return ElevatedButton(
+                    onPressed: () {
+                      if (key == '⌫') {
+                        deleteDigit();
+                      } else {
+                        addDigit(key);
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(6),
+                      backgroundColor:
+                          key == '⌫'
+                              ? Colors.blue
+                              : const Color.fromARGB(255, 50, 50, 50),
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(10, 10),
+                    ),
+                    child:
+                        key == '⌫'
+                            ? const Icon(Icons.backspace_outlined)
+                            : Text(key, style: const TextStyle(fontSize: 24)),
+                  );
+                },
+              ),
+              const SizedBox(height: 20), // Optional: extra spacing
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (Widget child, Animation<double> animation) {
+                  return ScaleTransition(scale: animation, child: child);
+                },
                 child:
-                    key == '⌫'
-                        ? const Icon(Icons.backspace_outlined)
-                        : Text(key, style: const TextStyle(fontSize: 24)),
-              );
-            },
-          ),
-          Spacer(),
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return ScaleTransition(scale: animation, child: child);
-            },
-            child:
-                digits.isNotEmpty
-                    ? Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 40,
-                      ), // 👈 Bottom spacing
-                      child: SizedBox(
-                        height: 90,
-                        width: 90,
-                        key: const ValueKey('fab'),
-                        child: FloatingActionButton(
-                          onPressed: () {},
-                          backgroundColor: const Color.fromARGB(
-                            255,
-                            133,
-                            186,
-                            248,
+                    digits.isNotEmpty
+                        ? Padding(
+                          padding: const EdgeInsets.only(bottom: 60),
+                          child: SizedBox(
+                            height: 90,
+                            width: 90,
+                            key: const ValueKey('fab'),
+                            child: FloatingActionButton(
+                              onPressed: () {},
+                              backgroundColor: const Color.fromARGB(
+                                255,
+                                133,
+                                186,
+                                248,
+                              ),
+                              shape: const CircleBorder(),
+                              child: const Icon(
+                                Icons.play_arrow,
+                                size: 32,
+                                color: Color.fromARGB(255, 34, 34, 34),
+                              ),
+                            ),
                           ),
-                          shape: const CircleBorder(),
-                          child: const Icon(
-                            Icons.play_arrow, // 👈 Changed to Play Icon
-                            size: 32,
-                            color: Color.fromARGB(255, 34, 34, 34),
-                          ),
-                        ),
-                      ),
-                    )
-                    : const SizedBox.shrink(),
+                        )
+                        : const SizedBox.shrink(),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
